@@ -1,19 +1,23 @@
 {
-  "name": "react-ts-loaders2",
+  "name": "react-ts-loaders",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+  "author": "Roy Anger",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "royanger/react-ts-loaders"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "prebuild": "rimraf dist",
+    "build": "babel src/lib -d dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +38,27 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "clear": "^0.1.0",
+    "web-vitals": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-react": "^7.13.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "rimraf": "^3.0.2"
+  },
+  "optionalDependencies": {
+    "win-node-env": "^0.4.0"
   }
 }
