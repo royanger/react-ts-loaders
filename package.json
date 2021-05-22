@@ -29,6 +29,7 @@
       "prebuild": "rimraf dist",
       "build": "babel ./src/lib --out-dir ./dist --extensions .ts,.tsx",
       "compile-styles": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/lib/index.scss dist/index.css",
+      "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
       "test": "react-scripts test",
       "eject": "react-scripts eject"
    },
@@ -55,7 +56,13 @@
       "@babel/core": "^7.14.3",
       "@babel/preset-react": "^7.13.13",
       "@babel/preset-typescript": "^7.13.0",
+      "babel-eslint": "^10.1.0",
+      "eslint": "^7.27.0",
+      "eslint-config-prettier": "^8.3.0",
+      "eslint-plugin-prettier": "^3.4.0",
       "node-sass": "^5.0.0",
+      "prettier": "^2.3.0",
+      "prettier-eslint-cli": "^5.0.1",
       "rimraf": "^3.0.2"
    }
 }

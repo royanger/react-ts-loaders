@@ -13,13 +13,13 @@ npm install --save react-ts-loaders
 ## Usage
 
 ```tsx
-import * as React from 'react';
+import * as React from 'react'
 
-import { Loader } from 'react-ts-loaders';
+import { Loader } from 'react-ts-loaders'
 
 const Example = () => {
-  return <MyComponent />;
-};
+   return <MyComponent />
+}
 ```
 
 ## License
