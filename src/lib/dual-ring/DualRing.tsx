@@ -1,17 +1,17 @@
 import * as React from 'react'
-import './index.scss'
+import './dualRing.css'
 
 interface Props {
-   type: string
+   type?: string
 }
 
-const Loader = ({ type }: Props) => {
+const DualRing = ({ type }: Props) => {
    return (
       <div className="r-ts-loader">
          <p>What am I getting myself into?</p>
-         <div className={type}></div>
+         <div className="dual-ring"></div>
       </div>
    )
 }
 
-export default Loader
+export default DualRing

@@ -1,2 +1,3 @@
-import Loader from './Loader'
-export { Loader }
+import DualRing from './dual-ring/DualRing'
+import Hourglass from './hourglass/Hourglass'
+export { DualRing, Hourglass }

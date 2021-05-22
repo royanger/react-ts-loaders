@@ -1,10 +1,9 @@
 import * as React from 'react'
 import './index.scss'
-import { Loader } from './lib'
 import LoaderExample from './components/LoaderExample'
 
 function App() {
-   const loaders = ['dual-ring', 'hourglass']
+   const loaders = ['dualring', 'hourglass']
    return (
       <div className="App">
          <header className="App-header">
