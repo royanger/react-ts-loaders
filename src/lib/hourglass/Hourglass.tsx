@@ -7,7 +7,7 @@ interface Props {
 
 const Hourglass = ({ type }: Props) => {
    return (
-      <div className="r-ts-loader">
+      <div className="rts-loader">
          <p>What am I getting myself into?</p>
          <div className="hourglass"></div>
       </div>

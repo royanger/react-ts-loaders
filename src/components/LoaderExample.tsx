@@ -1,5 +1,12 @@
 import * as React from 'react'
-import { DualRing, Hourglass } from '../lib'
+import {
+   DualRing,
+   Hourglass,
+   Spinner,
+   DotSpinner,
+   Pulse,
+   Ellipsis,
+} from '../lib'
 
 interface Props {
    loader: string
@@ -8,6 +15,10 @@ interface Props {
 const components = {
    dualring: DualRing,
    hourglass: Hourglass,
+   spinner: Spinner,
+   dotspinner: DotSpinner,
+   pulse: Pulse,
+   ellipsis: Ellipsis,
 }
 
 const LoaderExample = ({ loader }: Props) => {

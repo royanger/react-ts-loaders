@@ -1,9 +1,9 @@
-.r-ts-loader .dual-ring {
+.rts-loader .dual-ring {
    display: inline-block;
    width: 80px;
    height: 80px;
 }
-.r-ts-loader .dual-ring:after {
+.rts-loader .dual-ring:after {
    content: ' ';
    display: block;
    width: 64px;
