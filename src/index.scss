@@ -1,0 +1,9 @@
+.examples {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+
+   .rts-loader {
+      border: 1px solid lightsalmon;
+      width: 100%;
+   }
+}

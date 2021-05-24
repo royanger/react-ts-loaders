@@ -22,6 +22,10 @@ const Example = () => {
 }
 ```
 
+## Credit
+
+At this time, all of the loaders used in this package from from Loading.io and can be found at [Loading.io Pure CSS Loader](https://loading.io/css/). These is a great resource and all of the code has been released under the CCO License.
+
 ## License
 
 MIT © [royanger](https://github.com/royanger)
