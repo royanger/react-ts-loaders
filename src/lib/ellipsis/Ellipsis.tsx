@@ -3,14 +3,11 @@ import './ellipsis.css'
 
 const Ellipsis = () => {
    return (
-      <div className="rts-loader">
-         <p>Ellipsis</p>
-         <div className="ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+      <div className="ellipsis">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
       </div>
    )
 }

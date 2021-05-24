@@ -6,12 +6,7 @@ interface Props {
 }
 
 const Hourglass = ({ type }: Props) => {
-   return (
-      <div className="rts-loader">
-         <p>What am I getting myself into?</p>
-         <div className="hourglass"></div>
-      </div>
-   )
+   return <div className="hourglass"></div>
 }
 
 export default Hourglass

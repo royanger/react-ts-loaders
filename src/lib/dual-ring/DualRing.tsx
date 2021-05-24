@@ -6,12 +6,7 @@ interface Props {
 }
 
 const DualRing = ({ type }: Props) => {
-   return (
-      <div className="rts-loader">
-         <p>What am I getting myself into?</p>
-         <div className="dual-ring"></div>
-      </div>
-   )
+   return <div className="dual-ring"></div>
 }
 
 export default DualRing
