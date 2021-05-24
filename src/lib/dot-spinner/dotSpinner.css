@@ -8,7 +8,7 @@
    position: absolute;
    width: 6px;
    height: 6px;
-   background: rgb(20, 97, 184);
+   background: var(--rts-color);
    border-radius: 50%;
    animation: dotspinner 1.2s linear infinite;
 }

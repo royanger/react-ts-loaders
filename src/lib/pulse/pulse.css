@@ -9,7 +9,7 @@
    position: absolute;
    left: 8px;
    width: 16px;
-   background: rgb(59, 3, 55);
+   background: var(--rts-color);
    animation: pulse 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 .rts-loader .pulse div:nth-child(1) {
