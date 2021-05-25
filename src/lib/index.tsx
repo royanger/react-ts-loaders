@@ -8,7 +8,7 @@ import Pulse from './pulse/Pulse'
 import Ellipsis from './ellipsis/Ellipsis'
 import './spinner/spinner.css'
 
-const components = {
+const components: { [index: string]: any } = {
    dualring: DualRing,
    hourglass: Hourglass,
    spinner: Spinner,
@@ -17,15 +17,15 @@ const components = {
    ellipsis: Ellipsis,
 }
 
-interface Props {
+interface LoaderProps {
    type: string
    color: string
 }
 
-const Loader = ({ type, color }: Props) => {
+const Loader = ({ type, color }: LoaderProps) => {
    const SelectLoader = components[type]
 
-   const cssProperties = { width: '100%', '--rts-color': { color } }
+   const cssProperties = { width: '100%', '--rts-color': color }
 
    return (
       <div className="rts-loader" style={cssProperties}>
