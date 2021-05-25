@@ -18,8 +18,8 @@ const components: { [index: string]: any } = {
 }
 
 interface LoaderProps {
-   type: string
-   color: string
+   type?: string
+   color?: string
    altColor?: string
 }
 
@@ -31,12 +31,15 @@ interface cssProps {
 }
 
 const Loader = ({ type, color, altColor }: LoaderProps) => {
-   const SelectedLoader = components[type]
-   const secondaryColor = altColor ? altColor : color
+   const selectedType = type ? type : 'spinner'
+   const SelectedLoader = components[selectedType]
+
+   const primaryColor = color ? color : 'currentColor'
+   const secondaryColor = altColor ? altColor : primaryColor
 
    const cssValues: cssProps = {
-      color: color,
-      '--rts-color': color,
+      color: primaryColor,
+      '--rts-color': primaryColor,
       '--rts-secondary-color': secondaryColor,
    }
 
