@@ -1,3 +1,7 @@
+.rts-loader {
+   display: flex;
+   justify-content: center;
+}
 .rts-loader .pulse {
    display: inline-block;
    position: relative;
@@ -19,6 +23,7 @@
 .rts-loader .pulse div:nth-child(2) {
    left: 32px;
    animation-delay: -0.12s;
+   background: var(--rts-secondary-color);
 }
 .rts-loader .pulse div:nth-child(3) {
    left: 56px;

@@ -20,17 +20,29 @@ const components: { [index: string]: any } = {
 interface LoaderProps {
    type: string
    color: string
+   altColor?: string
 }
 
-const Loader = ({ type, color }: LoaderProps) => {
-   const SelectLoader = components[type]
+interface cssProps {
+   color: string
+   '--rts-color': string
+   '--rts-secondary-color'?: string
+   '--rts-background-color'?: string
+}
 
-   const cssProperties = { width: '100%', '--rts-color': color }
+const Loader = ({ type, color, altColor }: LoaderProps) => {
+   const SelectedLoader = components[type]
+   const secondaryColor = altColor ? altColor : color
+
+   const cssValues: cssProps = {
+      color: color,
+      '--rts-color': color,
+      '--rts-secondary-color': secondaryColor,
+   }
 
    return (
-      <div className="rts-loader" style={cssProperties}>
-         <p>{type}</p>
-         <SelectLoader />
+      <div className="rts-loader" style={cssValues}>
+         <SelectedLoader />
       </div>
    )
 }

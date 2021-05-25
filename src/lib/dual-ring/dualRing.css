@@ -1,3 +1,7 @@
+.rts-loader {
+   display: flex;
+   justify-content: center;
+}
 .rts-loader .dual-ring {
    display: inline-block;
    width: 80px;
@@ -11,7 +15,8 @@
    margin: 8px;
    border-radius: 50%;
    border: 6px solid var(--rts-color);
-   border-color: var(--rts-color) transparent var(--rts-color) transparent;
+   border-color: var(--rts-color) transparent var(--rts-secondary-color)
+      transparent;
    animation: dual-ring 1.2s linear infinite;
 }
 @keyframes dual-ring {

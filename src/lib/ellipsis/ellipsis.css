@@ -1,3 +1,7 @@
+.rts-loader {
+   display: flex;
+   justify-content: center;
+}
 .rts-loader .ellipsis {
    display: inline-block;
    position: relative;
@@ -20,6 +24,7 @@
 .rts-loader .ellipsis div:nth-child(2) {
    left: 8px;
    animation: ellipsis2 0.6s infinite;
+   background: var(--rts-secondary-color);
 }
 .rts-loader .ellipsis div:nth-child(3) {
    left: 32px;
@@ -28,6 +33,7 @@
 .rts-loader .ellipsis div:nth-child(4) {
    left: 56px;
    animation: ellipsis3 0.6s infinite;
+   background: var(--rts-secondary-color);
 }
 @keyframes ellipsis1 {
    0% {
