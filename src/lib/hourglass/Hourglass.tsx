@@ -1,11 +1,7 @@
 import * as React from 'react'
 import './hourglass.css'
 
-interface Props {
-   type?: string
-}
-
-const Hourglass = ({ type }: Props) => {
+const Hourglass = () => {
    return <div className="hourglass"></div>
 }
 

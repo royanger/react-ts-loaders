@@ -1,11 +1,7 @@
 import * as React from 'react'
 import './dualRing.css'
 
-interface Props {
-   type?: string
-}
-
-const DualRing = ({ type }: Props) => {
+const DualRing = () => {
    return <div className="dual-ring"></div>
 }
 
