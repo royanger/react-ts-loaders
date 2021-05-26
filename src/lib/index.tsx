@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
 import DualRing from './dual-ring/DualRing'
 import Hourglass from './hourglass/Hourglass'
@@ -6,7 +7,6 @@ import Spinner from './spinner/Spinner'
 import DotSpinner from './dot-spinner/DotSpinner'
 import Pulse from './pulse/Pulse'
 import Ellipsis from './ellipsis/Ellipsis'
-import './spinner/spinner.css'
 
 const components: { [index: string]: any } = {
    dualring: DualRing,
@@ -30,6 +30,11 @@ interface cssProps {
    '--rts-background-color'?: string
 }
 
+const Wrapper = styled.div`
+   display: flex;
+   justify-content: center;
+`
+
 const Loader = ({ type, color, altColor }: LoaderProps) => {
    const selectedType = type ? type : 'spinner'
    const SelectedLoader = components[selectedType]
@@ -44,9 +49,11 @@ const Loader = ({ type, color, altColor }: LoaderProps) => {
    }
 
    return (
-      <div className="rts-loader" style={cssValues}>
-         <SelectedLoader />
-      </div>
+      <Wrapper>
+         <div style={cssValues}>
+            <SelectedLoader />
+         </div>
+      </Wrapper>
    )
 }
 

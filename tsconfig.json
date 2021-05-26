@@ -3,7 +3,6 @@
       "allowJs": true,
       "allowSyntheticDefaultImports": true,
       "declaration": true,
-      "emitDeclarationOnly": true,
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "isolatedModules": true,
@@ -22,7 +21,8 @@
       "strict": true,
       "strictNullChecks": true,
       "target": "es5",
-      "typeRoots": ["./lib/@types", "./node_modules/@types"]
+      "typeRoots": ["./lib/@types", "./node_modules/@types"],
+      "noEmit": true
    },
    "include": ["./src/lib/**/*.tsx"],
    "exclude": ["node_modules"]
