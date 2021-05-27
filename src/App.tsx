@@ -12,9 +12,15 @@ function App() {
       'ellipsis',
    ]
    return (
-      <div className="App">
-         <header className="App-header">
-            <p>This is the example page </p>
+      <div>
+         <header>
+            <h1>All Loaders</h1>
+            <p>
+               For a more interactive example of the Loaders, please visit{' '}
+               <a href="https://loaders.royanger.app">
+                  https://loaders.royanger.app
+               </a>
+            </p>
          </header>
          <article>
             <div className="examples">

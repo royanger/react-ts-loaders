@@ -3,17 +3,17 @@ import styled from 'styled-components'
 
 const DualRingDiv = styled.div`
    display: inline-block;
-   width: 80px;
-   height: 80px;
+   // width: 80px;
+   // height: 80px;
 
    &:after {
       content: ' ';
       display: block;
-      width: 64px;
-      height: 64px;
+      width: calc(64px * var(--newSize));
+      height: calc(64px * var(--newSize));
       margin: 8px;
       border-radius: 50%;
-      border: 6px solid var(--rts-color);
+      border: calc(6px * var(--newSize)) solid var(--rts-color);
       border-color: var(--rts-color) transparent var(--rts-secondary-color)
          transparent;
       animation: dual-ring 1.2s linear infinite;
@@ -29,8 +29,23 @@ const DualRingDiv = styled.div`
    }
 `
 
-const DualRing = () => {
-   return <DualRingDiv className="dual-ring"></DualRingDiv>
+interface dualRingProps {
+   ratio: number
+}
+interface cssProps {
+   boxShadow: string
+   '--newSize': number
+}
+
+const DualRing = ({ ratio }: dualRingProps) => {
+   const newSize = (ratio ? ratio : 100) / 100
+
+   const cssValues: cssProps = {
+      boxShadow: 'none',
+      '--newSize': newSize,
+   }
+
+   return <DualRingDiv className="dual-ring" style={cssValues}></DualRingDiv>
 }
 
 export default DualRing

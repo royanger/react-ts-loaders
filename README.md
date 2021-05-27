@@ -72,6 +72,15 @@ Valid ways to define your color:
 
 This will define the secondary foreground color for the loader. This will make it into a duotone variation. The `altColor` can be defined the same way as `color` above.
 
+### `size`
+
+This number should represent a percent, just without the % sign. It will increase of decrease the size of the loader appropriately.
+
+Examples:
+
+-  `size={200}` - The loader will be 200% default size
+-  `size={50}` - The loader will be 50% default size
+
 ## Credit
 
 At this time, all of the loaders used in this package from from Loading.io and can be found at [Loading.io Pure CSS Loader](https://loading.io/css/). These is a great resource and all of the code has been released under the CCO License.

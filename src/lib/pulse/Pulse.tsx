@@ -4,46 +4,61 @@ import styled from 'styled-components'
 const PulseDiv = styled.div`
    display: inline-block;
    position: relative;
-   width: 80px;
-   height: 80px;
+   width: calc(80px * var(--newSize));
+   height: calc(80px * var(--newSize));
 
    div {
       display: inline-block;
       position: absolute;
-      left: 8px;
-      width: 16px;
+      left: calc(8px * var(--newSize));
+      width: calc(16px * var(--newSize));
       background: var(--rts-color);
       animation: pulse 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
    }
    div:nth-child(1) {
-      left: 8px;
+      left: calc(8px * var(--newSize));
       animation-delay: -0.24s;
    }
    div:nth-child(2) {
-      left: 32px;
+      left: calc(32px * var(--newSize));
       animation-delay: -0.12s;
       background: var(--rts-secondary-color);
    }
    div:nth-child(3) {
-      left: 56px;
+      left: calc(56px * var(--newSize));
       animation-delay: 0;
    }
    @keyframes pulse {
       0% {
-         top: 8px;
-         height: 64px;
+         top: calc(8px * var(--newSize));
+         height: calc(64px * var(--newSize));
       }
       50%,
       100% {
-         top: 24px;
-         height: 32px;
+         top: calc(24px * var(--newSize));
+         height: calc(32px * var(--newSize));
       }
    }
 `
 
-const Pulse = () => {
+interface dualRingProps {
+   ratio: number
+}
+interface cssProps {
+   boxShadow: string
+   '--newSize': number
+}
+
+const Pulse = ({ ratio }: dualRingProps) => {
+   const newSize = (ratio ? ratio : 100) / 100
+
+   const cssValues: cssProps = {
+      boxShadow: 'none',
+      '--newSize': newSize,
+   }
+
    return (
-      <PulseDiv>
+      <PulseDiv className="pulse" style={cssValues}>
          <div></div>
          <div></div>
          <div></div>

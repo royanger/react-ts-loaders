@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const HourglassDiv = styled.div`
    display: inline-block;
    position: relative;
-   width: 80px;
-   height: 80px;
+   width: calc(80px * var(--newSize));
+   height: calc(80px * var(--newSize));
 
    &:after {
       content: ' ';
@@ -15,7 +15,7 @@ const HourglassDiv = styled.div`
       height: 0;
       margin: 8px;
       box-sizing: border-box;
-      border: 32px solid var(--rts-color);
+      border: calc(32px * var(--newSize)) solid var(--rts-color);
       border-color: var(--rts-color) transparent var(--rts-secondary-color)
          transparent;
       animation: hourglass 1.2s infinite;
@@ -35,8 +35,22 @@ const HourglassDiv = styled.div`
    }
 `
 
-const Hourglass = () => {
-   return <HourglassDiv></HourglassDiv>
+interface dualRingProps {
+   ratio: number
+}
+interface cssProps {
+   boxShadow: string
+   '--newSize': number
+}
+
+const Hourglass = ({ ratio }: dualRingProps) => {
+   const newSize = ratio / 100
+
+   const cssValues: cssProps = {
+      boxShadow: 'none',
+      '--newSize': newSize,
+   }
+   return <HourglassDiv className="hourglass" style={cssValues}></HourglassDiv>
 }
 
 export default Hourglass

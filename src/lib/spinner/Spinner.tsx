@@ -2,24 +2,23 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const SpinnerDiv = styled.div`
-   color: official;
    display: inline-block;
    position: relative;
-   width: 80px;
-   height: 80px;
+   width: calc(80px * var(--newSize));
+   height: calc(80px * var(--newSize));
 
    div {
-      transform-origin: 40px 40px;
+      transform-origin: calc(40px * var(--newSize)) calc(40px * var(--newSize));
       animation: spinner 1.2s linear infinite;
    }
    div:after {
       content: ' ';
       display: block;
       position: absolute;
-      top: 3px;
-      left: 37px;
-      width: 6px;
-      height: 18px;
+      top: calc(3px * var(--newSize));
+      left: calc(37px * var(--newSize));
+      width: calc(6px * var(--newSize));
+      height: calc(18px * var(--newSize));
       border-radius: 20%;
       background: var(--rts-color);
    }
@@ -99,9 +98,24 @@ const SpinnerDiv = styled.div`
    }
 `
 
-const Spinner = () => {
+interface dualRingProps {
+   ratio: number
+}
+interface cssProps {
+   boxShadow: string
+   '--newSize': number
+}
+
+const Spinner = ({ ratio }: dualRingProps) => {
+   const newSize = (ratio ? ratio : 100) / 100
+
+   const cssValues: cssProps = {
+      boxShadow: 'none',
+      '--newSize': newSize,
+   }
+
    return (
-      <SpinnerDiv>
+      <SpinnerDiv className="spinner" style={cssValues}>
          <div></div>
          <div></div>
          <div></div>
