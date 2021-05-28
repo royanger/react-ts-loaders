@@ -1,5 +1,7 @@
 # React Loaders
 
+![React Typescript Loaders](README_logo.gif)
+
 A react library that provides components for pure CSS loaders. The library has full TypeScript support.
 
 [![NPM](https://img.shields.io/npm/v/react-ts-loaders.svg)](https://www.npmjs.com/package/react-ts-loaders)
