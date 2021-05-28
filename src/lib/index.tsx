@@ -22,6 +22,7 @@ interface LoaderProps {
    color?: string
    altColor?: string
    size?: number
+   className?: string
 }
 
 interface cssProps {
@@ -36,7 +37,7 @@ const Wrapper = styled.div`
    justify-content: center;
 `
 
-const Loader = ({ type, color, altColor, size }: LoaderProps) => {
+const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
    const selectedType = type ? type : 'spinner'
    const SelectedLoader = components[selectedType]
 
@@ -50,7 +51,7 @@ const Loader = ({ type, color, altColor, size }: LoaderProps) => {
    }
 
    return (
-      <Wrapper>
+      <Wrapper className={className}>
          <div style={cssValues}>
             <SelectedLoader ratio={size} />
          </div>

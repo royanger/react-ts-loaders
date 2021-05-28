@@ -83,6 +83,10 @@ Examples:
 -  `size={200}` - The loader will be 200% default size
 -  `size={50}` - The loader will be 50% default size
 
+### `className`
+
+Pass any classes you want to the Loader. These will be applied to the outer most div so you can target styling.
+
 ## Credit
 
 At this time, all of the loaders used in this package from from Loading.io and can be found at [Loading.io Pure CSS Loader](https://loading.io/css/). These is a great resource and all of the code has been released under the CCO License.
