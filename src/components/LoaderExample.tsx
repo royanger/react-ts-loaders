@@ -9,7 +9,7 @@ const LoaderExample = ({ loader }: Props) => {
    return (
       <div>
          <h2>Example - {loader}</h2>
-         <Loader type={loader} />
+         <Loader type={loader} size={200} />
       </div>
    )
 }

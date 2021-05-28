@@ -1,6 +1,6 @@
 {
    "name": "react-ts-loaders",
-   "version": "0.1.9",
+   "version": "0.1.19",
    "author": "Roy Anger",
    "license": "MIT",
    "private": false,
@@ -35,7 +35,6 @@
       "start": "react-scripts start",
       "prebuild": "rimraf dist",
       "build": "tsc -p .",
-      "publish": "npm run build && npm publish",
       "test": "react-scripts test",
       "eject": "react-scripts eject"
    },
