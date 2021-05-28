@@ -32,18 +32,13 @@ const DualRingDiv = styled.div`
 interface dualRingProps {
    ratio: number
 }
-interface cssProps {
-   boxShadow: string
-   '--newSize': number
-}
 
 const DualRing = ({ ratio }: dualRingProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
-   const cssValues: cssProps = {
-      boxShadow: 'none',
+   const cssValues = {
       '--newSize': newSize,
-   }
+   } as React.CSSProperties
 
    return <DualRingDiv className="dual-ring" style={cssValues}></DualRingDiv>
 }

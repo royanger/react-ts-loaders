@@ -25,13 +25,6 @@ interface LoaderProps {
    className?: string
 }
 
-interface cssProps {
-   color: string
-   '--rts-color': string
-   '--rts-secondary-color'?: string
-   '--rts-background-color'?: string
-}
-
 const Wrapper = styled.div`
    display: flex;
    justify-content: center;
@@ -44,11 +37,10 @@ const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
    const primaryColor = color ? color : 'currentColor'
    const secondaryColor = altColor ? altColor : primaryColor
 
-   const cssValues: cssProps = {
-      color: primaryColor,
+   const cssValues = {
       '--rts-color': primaryColor,
       '--rts-secondary-color': secondaryColor,
-   }
+   } as React.CSSProperties
 
    return (
       <Wrapper className={className}>

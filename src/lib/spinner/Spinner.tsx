@@ -101,18 +101,13 @@ const SpinnerDiv = styled.div`
 interface dualRingProps {
    ratio: number
 }
-interface cssProps {
-   boxShadow: string
-   '--newSize': number
-}
 
 const Spinner = ({ ratio }: dualRingProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
-   const cssValues: cssProps = {
-      boxShadow: 'none',
+   const cssValues = {
       '--newSize': newSize,
-   }
+   } as React.CSSProperties
 
    return (
       <SpinnerDiv className="spinner" style={cssValues}>

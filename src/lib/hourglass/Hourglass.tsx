@@ -38,18 +38,14 @@ const HourglassDiv = styled.div`
 interface dualRingProps {
    ratio: number
 }
-interface cssProps {
-   boxShadow: string
-   '--newSize': number
-}
 
 const Hourglass = ({ ratio }: dualRingProps) => {
    const newSize = ratio / 100
 
-   const cssValues: cssProps = {
-      boxShadow: 'none',
+   const cssValues = {
       '--newSize': newSize,
-   }
+   } as React.CSSProperties
+
    return <HourglassDiv className="hourglass" style={cssValues}></HourglassDiv>
 }
 

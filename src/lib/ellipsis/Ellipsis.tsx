@@ -63,18 +63,13 @@ const EllipsisDiv = styled.div`
 interface ellipsisProps {
    ratio: number
 }
-interface cssProps {
-   boxShadow: string
-   '--newSize': number
-}
 
 const Ellipsis = ({ ratio }: ellipsisProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
-   const cssValues: cssProps = {
-      boxShadow: 'none',
+   const cssValues = {
       '--newSize': newSize,
-   }
+   } as React.CSSProperties
 
    return (
       <EllipsisDiv className="ellipsis" style={cssValues}>

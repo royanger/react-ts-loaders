@@ -44,18 +44,13 @@ const PulseDiv = styled.div`
 interface dualRingProps {
    ratio: number
 }
-interface cssProps {
-   boxShadow: string
-   '--newSize': number
-}
 
 const Pulse = ({ ratio }: dualRingProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
-   const cssValues: cssProps = {
-      boxShadow: 'none',
+   const cssValues = {
       '--newSize': newSize,
-   }
+   } as React.CSSProperties
 
    return (
       <PulseDiv className="pulse" style={cssValues}>

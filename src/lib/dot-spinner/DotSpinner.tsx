@@ -97,17 +97,12 @@ const DotSpinnerDiv = styled.div`
 interface dotSpinnerProps {
    ratio: number
 }
-interface cssProps {
-   boxShadow: string
-   '--newSize': number
-}
 
 const DotSpinner = ({ ratio }: dotSpinnerProps) => {
    const newSize = (ratio ? ratio : 100) / 100
-   const cssValues: cssProps = {
-      boxShadow: 'none',
+   const cssValues = {
       '--newSize': newSize,
-   }
+   } as React.CSSProperties
 
    return (
       <DotSpinnerDiv className="dotspinner" style={cssValues}>
