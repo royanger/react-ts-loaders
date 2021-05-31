@@ -1,6 +1,6 @@
 {
    "name": "react-ts-loaders",
-   "version": "0.1.21",
+   "version": "0.1.23",
    "author": "Roy Anger",
    "license": "MIT",
    "private": false,
@@ -34,7 +34,7 @@
    "scripts": {
       "start": "react-scripts start",
       "prebuild": "rimraf dist",
-      "build": "tsc -p .",
+      "build": "tsc -p ./tsconfig-build.json",
       "test": "react-scripts test",
       "eject": "react-scripts eject"
    },
@@ -83,5 +83,7 @@
       "typescript": "^4.3.2",
       "web-vitals": "^1.0.1"
    },
-   "peerDependencies": {}
+   "peerDependencies": {
+      "react-is": "^16.8.0"
+   }
 }
