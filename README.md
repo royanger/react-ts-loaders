@@ -50,6 +50,34 @@ const Example = () => {
 }
 ```
 
+## Context Configuration
+
+Are you planning to use Loaders in many places and want to control their type, colors, size and classes from one location? You can easily use Context to create a base configuration.
+
+```tsx
+import LoaderContext from '../src/lib/loaderContext'
+
+ReactDOM.render(
+   <React.StrictMode>
+      <LoaderContext.Provider
+         value={{
+            type: 'dualring',
+            color: 'rgb(0, 128, 58)',
+            altColor: 'rgb(241, 25, 213)',
+            size: 100,
+            className: 'help',
+         }}
+      >
+         <App />
+      </LoaderContext.Provider>
+```
+
+The Context Configuration takes all of the same props as a single `<Loader>` component.
+
+With the exception of `className`, the props you supply to the Context Configuration can be **_overridden_** on a specific use of the `Loader` component. IE, you can set all Loaders to be a red, but if you do `<Loader color="rgb(0, 128, 58)" />` then that loader will be green. This gives you the flexibility to have one off loaders, while having a default configuration for your application.
+
+As mentioned, `className` does behave a little differently. It will combine the classes given via Context with those given via the specific component instance. The resulting class list will include all classes.
+
 ## Props
 
 All props are optional. If you do specify a type, then the `spinner` type will be used. If you don't specify any colors then the `currentColor` for the element will be used and the background will be transparent.

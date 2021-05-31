@@ -1,16 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import reportWebVitals from './reportWebVitals'
+import LoaderContext from '../src/lib/loaderContext'
 
 ReactDOM.render(
    <React.StrictMode>
-      <App />
+      <LoaderContext.Provider
+         value={{
+            type: 'dualring',
+            color: 'rgb(0, 128, 58)',
+            altColor: 'rgb(241, 25, 213)',
+            size: 300,
+            className: 'help',
+         }}
+      >
+         <App />
+      </LoaderContext.Provider>
    </React.StrictMode>,
    document.getElementById('root')
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()

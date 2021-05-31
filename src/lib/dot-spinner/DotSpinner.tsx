@@ -99,7 +99,7 @@ interface dotSpinnerProps {
 }
 
 const DotSpinner = ({ ratio }: dotSpinnerProps) => {
-   const newSize = (ratio ? ratio : 100) / 100
+   const newSize = ratio / 100
    const cssValues = {
       '--newSize': newSize,
    } as React.CSSProperties

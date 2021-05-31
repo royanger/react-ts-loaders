@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import LoaderContext from './loaderContext'
 
 import DualRing from './dual-ring/DualRing'
 import Hourglass from './hourglass/Hourglass'
@@ -31,23 +32,37 @@ const Wrapper = styled.div`
 `
 
 const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
-   const selectedType = type ? type : 'spinner'
-   const SelectedLoader = components[selectedType]
-
-   const primaryColor = color ? color : 'currentColor'
-   const secondaryColor = altColor ? altColor : primaryColor
-
-   const cssValues = {
-      '--rts-color': primaryColor,
-      '--rts-secondary-color': secondaryColor,
-   } as React.CSSProperties
-
    return (
-      <Wrapper className={className}>
-         <div style={cssValues}>
-            <SelectedLoader ratio={size} />
-         </div>
-      </Wrapper>
+      <LoaderContext.Consumer>
+         {data => {
+            const selectedType = type || data?.type || 'ellipsis'
+            const SelectedLoader = components[selectedType]
+
+            const primaryColor = color || data?.color || 'currentColor'
+            const secondaryColor = altColor || data?.altColor || primaryColor
+
+            const selectedSize = size || data?.size || 100
+
+            const classes = `${className ? className : ''} ${
+               data?.className ? data.className : ''
+            } `
+            console.log('data', data)
+            console.log('color', classes)
+
+            const cssValues = {
+               '--rts-color': primaryColor,
+               '--rts-secondary-color': secondaryColor,
+            } as React.CSSProperties
+
+            return (
+               <Wrapper className={classes}>
+                  <div style={cssValues}>
+                     <SelectedLoader ratio={selectedSize} />
+                  </div>
+               </Wrapper>
+            )
+         }}
+      </LoaderContext.Consumer>
    )
 }
 
