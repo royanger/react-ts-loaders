@@ -31,9 +31,7 @@ const LoaderProvider = ({
 
 function useLoaderContext() {
    const context = React.useContext(LoaderContext)
-   if (context === undefined) {
-      throw new Error('useLoaderContext must be used within a LoaderProvider')
-   }
+   // skipping check that this is in provider
    return context
 }
 
