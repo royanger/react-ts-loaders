@@ -1,8 +1,8 @@
 # React Loaders
 
-![React Typescript Loaders](README_logo.gif)
-
 A react library that provides components for pure CSS loaders. The library has full TypeScript support.
+
+![React Typescript Loaders](README_logo.gif)
 
 [![NPM](https://img.shields.io/npm/v/react-ts-loaders.svg)](https://www.npmjs.com/package/react-ts-loaders)
 
@@ -16,6 +16,8 @@ npm install --save react-ts-loaders
 
 ### No Configuration
 
+This component is designed to (usually) work right out of the box without needing to set anything up.
+
 ```tsx
 import * as React from 'react'
 import Loader from 'react-ts-loaders'
@@ -26,6 +28,8 @@ const Example = () => {
 ```
 
 ### Simple Configuration
+
+Passing in a loader type and a color is probably all most people will need or want.
 
 ```tsx
 import * as React from 'react'
@@ -43,13 +47,13 @@ import * as React from 'react'
 import Loader from 'react-ts-loaders'
 
 const Example = () => {
-   return <Loader type="spinner" color="blue" altColor="lightblue" />
+   return <Loader type="spinner" color="blue" altColor="lightblue" size={200} className="dark-loader />
 }
 ```
 
 ## Context Configuration
 
-Are you planning to use Loaders in many places and want to control their type, colors, size and classes from one location? You can easily use Context to create a base configuration.
+Are you planning to use Loaders in many places and want to control their type, colors, size or classes from one location? You can easily use Context to create a base configuration.
 
 ```tsx
 import * as React from 'react'
@@ -70,13 +74,13 @@ ReactDOM.render(
       </LoaderProvider>
 ```
 
-The Context Configuration takes all of the same props as a single `<Loader>` component.
+The Context Configuration takes all of the same props as a single `<Loader>` component. The only **_required_** prop is `type`.
 
-With the exception of `className`, the props you supply to the Context Configuration can be **_overridden_** on a specific use of the `Loader` component. IE, you can set all Loaders to be a red, but if you do `<Loader color="rgb(0, 128, 58)" />` then that loader will be green. This gives you the flexibility to have one off loaders, while having a default configuration for your application.
+With the exception of `className`, the props you supply to the Context Configuration can be **_overridden_** on a specific instance of the `Loader` component. IE, you can set all Loaders to be a red, but if you do `<Loader color="rgb(0, 128, 58)" />` then that loader will be green. This gives you the flexibility to have one off loaders, while having a default configuration for your application.
 
 As mentioned, `className` does behave a little differently. It will combine the classes given via Context with those given via the specific component instance. The resulting class list will include all classes.
 
-You can access the Consumer via hooks if you need to. This is purely optional. The component handles consuming the context and applying the settings without anything required in your application.
+You can access the Consumer via hooks if you need to. This is purely optional. The component handles consuming the context and applying the settings without anything required in your application. **_Note:_** If you do use this hook, be aware there is no check that your are using it inside of a Provider.
 
 ```jsx
 import * as React from 'react'
@@ -87,11 +91,11 @@ const context = useLoaderContext()
 
 ## Props
 
-All props are optional. If you do specify a type, then the `spinner` type will be used. If you don't specify any colors then the `currentColor` for the element will be used and the background will be transparent.
+All props are optional. If you do not specify a type, then the `spinner` type will be used. If you don't specify any colors then the `currentColor` for the element will be used and the background will be transparent.
 
 ### `type`
 
-Specify the type of loader you want to use. The current options are `spinner`, `ellipsis`, `dualring`, `hourglass`, `dotspinner` and `pulse`.
+Specify the type of loader you want to use. The current options are `spinner`, `ellipsis`, `dualring`, `hourglass`, `dotspinner`, `pulse`, `ring`, `roller`, `grid`, `ripple` and `circle`.
 
 ### `color`
 

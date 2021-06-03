@@ -8,6 +8,11 @@ import Spinner from './spinner/Spinner'
 import DotSpinner from './dot-spinner/DotSpinner'
 import Pulse from './pulse/Pulse'
 import Ellipsis from './ellipsis/Ellipsis'
+import Ring from './ring/Ring'
+import Roller from './roller/Roller'
+import Grid from './grid/Grid'
+import Ripple from './ripple/Ripple'
+import Circle from './circle/Circle'
 
 const components: { [index: string]: any } = {
    dualring: DualRing,
@@ -16,6 +21,11 @@ const components: { [index: string]: any } = {
    dotspinner: DotSpinner,
    pulse: Pulse,
    ellipsis: Ellipsis,
+   ring: Ring,
+   roller: Roller,
+   grid: Grid,
+   ripple: Ripple,
+   circle: Circle,
 }
 
 interface LoaderProps {

@@ -10,6 +10,11 @@ function App() {
       'dotspinner',
       'pulse',
       'ellipsis',
+      'ring',
+      'roller',
+      'grid',
+      'ripple',
+      'circle',
    ]
    return (
       <div>
