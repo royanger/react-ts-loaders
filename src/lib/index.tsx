@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import LoaderContext from './loaderContext'
+import { useLoaderContext, LoaderProvider } from './loaderContext'
 
 import DualRing from './dual-ring/DualRing'
 import Hourglass from './hourglass/Hourglass'
@@ -32,38 +32,33 @@ const Wrapper = styled.div`
 `
 
 const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
+   const context = useLoaderContext()
+
+   const selectedType = type || context?.type || 'ellipsis'
+   const SelectedLoader = components[selectedType]
+
+   const primaryColor = color || context?.color || 'currentColor'
+   const secondaryColor = altColor || context?.altColor || primaryColor
+
+   const selectedSize = size || context?.size || 100
+
+   const classes = `${className ? className : ''} ${
+      context?.className ? context.className : ''
+   } `
+
+   const cssValues = {
+      '--rts-color': primaryColor,
+      '--rts-secondary-color': secondaryColor,
+   } as React.CSSProperties
+
    return (
-      <LoaderContext.Consumer>
-         {data => {
-            const selectedType = type || data?.type || 'ellipsis'
-            const SelectedLoader = components[selectedType]
-
-            const primaryColor = color || data?.color || 'currentColor'
-            const secondaryColor = altColor || data?.altColor || primaryColor
-
-            const selectedSize = size || data?.size || 100
-
-            const classes = `${className ? className : ''} ${
-               data?.className ? data.className : ''
-            } `
-            console.log('data', data)
-            console.log('color', classes)
-
-            const cssValues = {
-               '--rts-color': primaryColor,
-               '--rts-secondary-color': secondaryColor,
-            } as React.CSSProperties
-
-            return (
-               <Wrapper className={classes}>
-                  <div style={cssValues}>
-                     <SelectedLoader ratio={selectedSize} />
-                  </div>
-               </Wrapper>
-            )
-         }}
-      </LoaderContext.Consumer>
+      <Wrapper className={classes}>
+         <div style={cssValues}>
+            <SelectedLoader ratio={selectedSize} />
+         </div>
+      </Wrapper>
    )
 }
 
 export default Loader
+export { useLoaderContext, LoaderProvider }

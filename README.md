@@ -18,7 +18,6 @@ npm install --save react-ts-loaders
 
 ```tsx
 import * as React from 'react'
-
 import Loader from 'react-ts-loaders'
 
 const Example = () => {
@@ -30,7 +29,6 @@ const Example = () => {
 
 ```tsx
 import * as React from 'react'
-
 import Loader from 'react-ts-loaders'
 
 const Example = () => {
@@ -42,7 +40,6 @@ const Example = () => {
 
 ```tsx
 import * as React from 'react'
-
 import Loader from 'react-ts-loaders'
 
 const Example = () => {
@@ -55,21 +52,22 @@ const Example = () => {
 Are you planning to use Loaders in many places and want to control their type, colors, size and classes from one location? You can easily use Context to create a base configuration.
 
 ```tsx
-import LoaderContext from '../src/lib/loaderContext'
+import * as React from 'react'
+import { LoaderProvider } from '../src/lib/loaderContext'
 
 ReactDOM.render(
    <React.StrictMode>
-      <LoaderContext.Provider
+      <LoaderProvider
          value={{
             type: 'dualring',
             color: 'rgb(0, 128, 58)',
             altColor: 'rgb(241, 25, 213)',
             size: 100,
-            className: 'help',
+            className: 'dark-loader',
          }}
       >
          <App />
-      </LoaderContext.Provider>
+      </LoaderProvider>
 ```
 
 The Context Configuration takes all of the same props as a single `<Loader>` component.
@@ -77,6 +75,15 @@ The Context Configuration takes all of the same props as a single `<Loader>` com
 With the exception of `className`, the props you supply to the Context Configuration can be **_overridden_** on a specific use of the `Loader` component. IE, you can set all Loaders to be a red, but if you do `<Loader color="rgb(0, 128, 58)" />` then that loader will be green. This gives you the flexibility to have one off loaders, while having a default configuration for your application.
 
 As mentioned, `className` does behave a little differently. It will combine the classes given via Context with those given via the specific component instance. The resulting class list will include all classes.
+
+You can access the Consumer via hooks if you need to. This is purely optional. The component handles consuming the context and applying the settings without anything required in your application.
+
+```jsx
+import * as React from 'react'
+import { useLoaderContext } from './loaderContext'
+
+const context = useLoaderContext()
+```
 
 ## Props
 
@@ -92,11 +99,12 @@ The color to use for the loader. If no `altColor` is specified then `color` is u
 
 Valid ways to define your color:
 
--  `color="blue"`
+-  `color="blue"` (any [HTML Color name](https://www.w3schools.com/colors/colors_names.asp))
 -  `color="rgb(54, 3, 95)"`
 -  `color="rgba(54, 3, 95,.3)"`
 -  `color="hsl(147, 50%, 47%)"`
 -  `color="hsla(147, 50%, 47%,.2)"`
+-  `color="var(--brand-primary)"` (CSS variables defined in your application)
 
 ### `altColor`
 
