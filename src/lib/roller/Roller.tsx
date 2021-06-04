@@ -7,6 +7,15 @@ const RollerDiv = styled.div`
    width: calc(80px * var(--newSize));
    height: calc(80px * var(--newSize));
 
+   .loader-label {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      width: 1px;
+      position: absolute;
+      white-space: nowrap;
+   }
+
    div {
       animation: roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       transform-origin: calc(40px * var(--newSize)) calc(40px * var(--newSize));
@@ -21,62 +30,62 @@ const RollerDiv = styled.div`
       background: var(--rts-color);
       margin: -4px 0 0 -4px;
    }
-   div:nth-child(1) {
+   div:nth-child(2) {
       animation-delay: -0.036s;
    }
-   div:nth-child(1):after {
+   div:nth-child(2):after {
       top: calc(63px * var(--newSize));
       left: calc(63px * var(--newSize));
    }
-   div:nth-child(2) {
+   div:nth-child(3) {
       animation-delay: -0.072s;
    }
-   div:nth-child(2):after {
+   div:nth-child(3):after {
       top: calc(68px * var(--newSize));
       left: calc(56px * var(--newSize));
       background: var(--rts-secondary-color);
    }
-   div:nth-child(3) {
+   div:nth-child(4) {
       animation-delay: -0.108s;
    }
-   div:nth-child(3):after {
+   div:nth-child(4):after {
       top: calc(71px * var(--newSize));
       left: calc(48px * var(--newSize));
    }
-   div:nth-child(4) {
+   div:nth-child(5) {
       animation-delay: -0.144s;
    }
-   div:nth-child(4):after {
+   div:nth-child(5):after {
       top: calc(72px * var(--newSize));
       left: calc(40px * var(--newSize));
       background: var(--rts-secondary-color);
    }
-   div:nth-child(5) {
+   div:nth-child(6) {
       animation-delay: -0.18s;
    }
-   div:nth-child(5):after {
+   div:nth-child(6):after {
       top: calc(71px * var(--newSize));
       left: calc(32px * var(--newSize));
    }
-   div:nth-child(6) {
+   div:nth-child(7) {
       animation-delay: -0.216s;
    }
-   div:nth-child(6):after {
+   div:nth-child(7):after {
       top: calc(68px * var(--newSize));
       left: calc(24px * var(--newSize));
       background: var(--rts-secondary-color);
    }
-   div:nth-child(7) {
+   div:nth-child(8) {
       animation-delay: -0.252s;
    }
-   div:nth-child(7):after {
+   div:nth-child(8):after {
       top: calc(63px * var(--newSize));
       left: calc(17px * var(--newSize));
    }
-   div:nth-child(8) {
+   div:nth-child(9) {
       animation-delay: -0.288s;
    }
-   div:nth-child(8):after {
+   div:nth-child(9):after {
       top: calc(56px * var(--newSize));
       left: calc(12px * var(--newSize));
       background: var(--rts-secondary-color);
@@ -102,14 +111,17 @@ const Roller = ({ ratio }: rollerProps) => {
 
    return (
       <RollerDiv className="roller" style={cssValues}>
-         <div></div>
-         <div></div>
-         <div></div>
-         <div></div>
-         <div></div>
-         <div></div>
-         <div></div>
-         <div></div>
+         <p className="loader-label" aria-hidden="false">
+            Content is loading.
+         </p>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
       </RollerDiv>
    )
 }

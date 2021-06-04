@@ -7,6 +7,15 @@ const RippleDiv = styled.div`
    width: calc(80px * var(--newSize));
    height: calc(80px * var(--newSize));
 
+   .loader-label {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      width: 1px;
+      position: absolute;
+      white-space: nowrap;
+   }
+
    div {
       position: absolute;
       border: calc(4px * var(--newSize)) solid var(--rts-color);
@@ -49,8 +58,11 @@ const Ripple = ({ ratio }: rippleProps) => {
 
    return (
       <RippleDiv className="ring" style={cssValues}>
-         <div></div>
-         <div></div>
+         <p className="loader-label" aria-hidden="false">
+            Content is loading.
+         </p>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
       </RippleDiv>
    )
 }

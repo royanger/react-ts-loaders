@@ -5,6 +5,14 @@ const RingDiv = styled.div`
    display: inline-block;
    transform: translateZ(1px);
 }
+.loader-label {
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   height: 1px;
+   width: 1px;
+   position: absolute;
+   white-space: nowrap;
+}
  div {
    display: inline-block;
    width: calc(64px * var(--newSize));
@@ -43,7 +51,10 @@ const Circle = ({ ratio }: circleProps) => {
 
    return (
       <RingDiv className="circle" style={cssValues}>
-         <div></div>
+         <p className="loader-label" aria-hidden="false">
+            Content is loading.
+         </p>
+         <div aria-hidden="true"></div>
       </RingDiv>
    )
 }

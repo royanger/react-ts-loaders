@@ -6,6 +6,15 @@ const DualRingDiv = styled.div`
    // width: 80px;
    // height: 80px;
 
+   .loader-label {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      width: 1px;
+      position: absolute;
+      white-space: nowrap;
+   }
+
    &:after {
       content: ' ';
       display: block;
@@ -40,7 +49,13 @@ const DualRing = ({ ratio }: dualRingProps) => {
       '--newSize': newSize,
    } as React.CSSProperties
 
-   return <DualRingDiv className="dual-ring" style={cssValues}></DualRingDiv>
+   return (
+      <DualRingDiv className="dual-ring" style={cssValues}>
+         <p className="loader-label" aria-hidden="false">
+            Content is loading.
+         </p>
+      </DualRingDiv>
+   )
 }
 
 export default DualRing

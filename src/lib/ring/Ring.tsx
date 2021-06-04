@@ -7,6 +7,15 @@ const RingDiv = styled.div`
    width: calc(80px * var(--newSize));
    height: calc(80px * var(--newSize));
 
+   .loader-label {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      width: 1px;
+      position: absolute;
+      white-space: nowrap;
+   }
+
    div {
       box-sizing: border-box;
       display: block;
@@ -19,13 +28,13 @@ const RingDiv = styled.div`
       animation: ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       border-color: var(--rts-color) transparent transparent transparent;
    }
-   div:nth-child(1) {
+   div:nth-child(2) {
       animation-delay: -0.45s;
    }
-   div:nth-child(2) {
+   div:nth-child(3) {
       animation-delay: -0.3s;
    }
-   div:nth-child(3) {
+   div:nth-child(4) {
       animation-delay: -0.15s;
    }
    @keyframes ring {
@@ -49,10 +58,13 @@ const Ring = ({ ratio }: ringProps) => {
 
    return (
       <RingDiv className="ring" style={cssValues}>
-         <div></div>
-         <div></div>
-         <div></div>
-         <div></div>
+         <p className="loader-label" aria-hidden="false">
+            Content is loading.
+         </p>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
+         <div aria-hidden="true"></div>
       </RingDiv>
    )
 }

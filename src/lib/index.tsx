@@ -63,7 +63,7 @@ const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
 
    return (
       <Wrapper className={classes}>
-         <div style={cssValues}>
+         <div style={cssValues} role="alert" aria-live="assertive">
             <SelectedLoader ratio={selectedSize} />
          </div>
       </Wrapper>
