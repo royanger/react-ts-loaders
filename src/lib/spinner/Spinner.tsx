@@ -85,6 +85,9 @@ const SpinnerDiv = styled.div`
       transform: rotate(330deg);
       animation-delay: 0s;
    }
+   div:nth-child(12):after {
+      background: var(--rts-secondary-color);
+   }
    .rts-loader .spinner div:nth-child(12):after {
       background: var(--rts-secondary-color);
    }
