@@ -6,6 +6,10 @@ A react library that provides components for pure CSS loaders. The library has f
 
 [![NPM](https://img.shields.io/npm/v/react-ts-loaders.svg)](https://www.npmjs.com/package/react-ts-loaders)
 
+## Demo
+
+You can view a demo with live configuration options at https://loaders.royanger.app/
+
 ## Install
 
 ```bash

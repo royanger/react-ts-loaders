@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
    const context = useLoaderContext()
 
-   const selectedType = type || context?.type || 'ellipsis'
+   const selectedType = type || context?.type || 'spinner'
    const SelectedLoader = components[selectedType]
 
    const primaryColor = color || context?.color || 'currentColor'
