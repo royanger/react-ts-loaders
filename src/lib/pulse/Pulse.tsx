@@ -52,9 +52,10 @@ const PulseDiv = styled.div`
 
 interface dualRingProps {
    ratio: number
+   message: string
 }
 
-const Pulse = ({ ratio }: dualRingProps) => {
+const Pulse = ({ ratio, message }: dualRingProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
    const cssValues = {
@@ -64,7 +65,7 @@ const Pulse = ({ ratio }: dualRingProps) => {
    return (
       <PulseDiv className="pulse" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>

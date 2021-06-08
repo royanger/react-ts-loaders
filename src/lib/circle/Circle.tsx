@@ -41,9 +41,10 @@ const RingDiv = styled.div`
 `
 interface circleProps {
    ratio: number
+   message: string
 }
 
-const Circle = ({ ratio }: circleProps) => {
+const Circle = ({ ratio, message }: circleProps) => {
    const newSize = ratio / 100
    const cssValues = {
       '--newSize': newSize,
@@ -52,7 +53,7 @@ const Circle = ({ ratio }: circleProps) => {
    return (
       <RingDiv className="circle" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
       </RingDiv>

@@ -33,6 +33,7 @@ interface LoaderProps {
    color?: string
    altColor?: string
    size?: number
+   message?: string
    className?: string
 }
 
@@ -41,7 +42,14 @@ const Wrapper = styled.div`
    justify-content: center;
 `
 
-const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
+const Loader = ({
+   type,
+   color,
+   altColor,
+   size,
+   message,
+   className,
+}: LoaderProps) => {
    const context = useLoaderContext()
 
    const selectedType = type || context?.type || 'spinner'
@@ -61,10 +69,12 @@ const Loader = ({ type, color, altColor, size, className }: LoaderProps) => {
       '--rts-secondary-color': secondaryColor,
    } as React.CSSProperties
 
+   const messageText = message ? message : 'Content is loading.'
+
    return (
       <Wrapper className={classes}>
          <div style={cssValues} role="alert" aria-live="assertive">
-            <SelectedLoader ratio={selectedSize} />
+            <SelectedLoader ratio={selectedSize} message={messageText} />
          </div>
       </Wrapper>
    )

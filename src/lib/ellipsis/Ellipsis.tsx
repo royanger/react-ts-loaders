@@ -71,9 +71,10 @@ const EllipsisDiv = styled.div`
 
 interface ellipsisProps {
    ratio: number
+   message: string
 }
 
-const Ellipsis = ({ ratio }: ellipsisProps) => {
+const Ellipsis = ({ ratio, message }: ellipsisProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
    const cssValues = {
@@ -83,7 +84,7 @@ const Ellipsis = ({ ratio }: ellipsisProps) => {
    return (
       <EllipsisDiv className="ellipsis" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>

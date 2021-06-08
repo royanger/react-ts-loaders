@@ -112,9 +112,10 @@ const SpinnerDiv = styled.div`
 
 interface dualRingProps {
    ratio: number
+   message: string
 }
 
-const Spinner = ({ ratio }: dualRingProps) => {
+const Spinner = ({ ratio, message }: dualRingProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
    const cssValues = {
@@ -124,7 +125,7 @@ const Spinner = ({ ratio }: dualRingProps) => {
    return (
       <SpinnerDiv className="spinner" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>

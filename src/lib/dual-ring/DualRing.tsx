@@ -40,9 +40,10 @@ const DualRingDiv = styled.div`
 
 interface dualRingProps {
    ratio: number
+   message: string
 }
 
-const DualRing = ({ ratio }: dualRingProps) => {
+const DualRing = ({ ratio, message }: dualRingProps) => {
    const newSize = (ratio ? ratio : 100) / 100
 
    const cssValues = {
@@ -52,7 +53,7 @@ const DualRing = ({ ratio }: dualRingProps) => {
    return (
       <DualRingDiv className="dual-ring" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
       </DualRingDiv>
    )

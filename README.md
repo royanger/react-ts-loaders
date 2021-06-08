@@ -2,6 +2,13 @@
 
 A react library that provides components for pure CSS loaders. The library has full TypeScript support.
 
+## Key Features
+
+-  Simple to use out of the box.
+-  Fully accessible. Includes visually hidden messages and alerts for users with screen readers.
+-  Above message can be customized via props.
+-  Quickly change the color(s), size, type, and message
+
 [![NPM](https://img.shields.io/npm/v/react-ts-loaders.svg)](https://www.npmjs.com/package/react-ts-loaders)
 
 ## Demo
@@ -124,6 +131,10 @@ Examples:
 
 -  `size={200}` - The loader will be 200% default size
 -  `size={50}` - The loader will be 50% default size
+
+### `message`
+
+By default the loader has a visually hidden message of _'Content is loading.'_ inside of the loader component. This is paired with an '_role='alert'_ to alert users with screen readers that content is loading. This prop allows you to customize that message or provide localized messages to your users.
 
 ### `className`
 

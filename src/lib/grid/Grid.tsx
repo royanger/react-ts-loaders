@@ -85,9 +85,10 @@ const GridDiv = styled.div`
 `
 interface gridProps {
    ratio: number
+   message: string
 }
 
-const Grid = ({ ratio }: gridProps) => {
+const Grid = ({ ratio, message }: gridProps) => {
    const newSize = ratio / 100
    const cssValues = {
       '--newSize': newSize,
@@ -96,7 +97,7 @@ const Grid = ({ ratio }: gridProps) => {
    return (
       <GridDiv className="grid" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>

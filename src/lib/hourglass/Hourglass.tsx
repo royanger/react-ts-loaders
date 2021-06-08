@@ -46,9 +46,10 @@ const HourglassDiv = styled.div`
 
 interface dualRingProps {
    ratio: number
+   message: string
 }
 
-const Hourglass = ({ ratio }: dualRingProps) => {
+const Hourglass = ({ ratio, message }: dualRingProps) => {
    const newSize = ratio / 100
 
    const cssValues = {
@@ -58,7 +59,7 @@ const Hourglass = ({ ratio }: dualRingProps) => {
    return (
       <HourglassDiv className="hourglass" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
       </HourglassDiv>
    )

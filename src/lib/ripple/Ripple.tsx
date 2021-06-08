@@ -48,9 +48,10 @@ const RippleDiv = styled.div`
 `
 interface rippleProps {
    ratio: number
+   message: string
 }
 
-const Ripple = ({ ratio }: rippleProps) => {
+const Ripple = ({ ratio, message }: rippleProps) => {
    const newSize = ratio / 100
    const cssValues = {
       '--newSize': newSize,
@@ -59,7 +60,7 @@ const Ripple = ({ ratio }: rippleProps) => {
    return (
       <RippleDiv className="ring" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>

@@ -101,9 +101,10 @@ const RollerDiv = styled.div`
 `
 interface rollerProps {
    ratio: number
+   message: string
 }
 
-const Roller = ({ ratio }: rollerProps) => {
+const Roller = ({ ratio, message }: rollerProps) => {
    const newSize = ratio / 100
    const cssValues = {
       '--newSize': newSize,
@@ -112,7 +113,7 @@ const Roller = ({ ratio }: rollerProps) => {
    return (
       <RollerDiv className="roller" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>

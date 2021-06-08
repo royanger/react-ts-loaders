@@ -105,9 +105,10 @@ const DotSpinnerDiv = styled.div`
 
 interface dotSpinnerProps {
    ratio: number
+   message: string
 }
 
-const DotSpinner = ({ ratio }: dotSpinnerProps) => {
+const DotSpinner = ({ ratio, message }: dotSpinnerProps) => {
    const newSize = ratio / 100
    const cssValues = {
       '--newSize': newSize,
@@ -116,7 +117,7 @@ const DotSpinner = ({ ratio }: dotSpinnerProps) => {
    return (
       <DotSpinnerDiv className="dotspinner" style={cssValues}>
          <p className="loader-label" aria-hidden="false">
-            Content is loading.
+            {message}
          </p>
          <div aria-hidden="true"></div>
          <div aria-hidden="true"></div>
